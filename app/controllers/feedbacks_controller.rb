@@ -1,6 +1,6 @@
 class FeedbacksController < ApplicationController
+  before_action :authenticate_user!, only: [:edit, :destroy, :update]
   before_action :set_feedback, only: %i[ show edit update destroy ]
-
   # GET /feedbacks or /feedbacks.json
   def index
     @feedbacks = Feedback.all

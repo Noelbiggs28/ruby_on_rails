@@ -3,7 +3,12 @@
   <a class="navbar-brand navBarText" href="/">Home</a>
   <a class="navbar-brand navBarText" href="/home/gls">GLs</a>
   <a class="navbar-brand navBarText" href="/feedbacks">FeedBack</a>
-  <a class="navbar-brand navBarText" href="/home/login">Login</a>
+  <% if user_signed_in? %>
+  <%= link_to "Log Out", logout_path, method: :delete, class: "navbar-brand navBarText", data: { confirm: "Are you sure you want to log out?" } %>
+  <% else %>
+    <a class="navbar-brand navBarText" href="/login">Login</a>
+    <a class="navbar-brand navBarText" href="/sign_up">Sign Up</a>
+  <% end %>
 </div>
 </nav>
 <hr style="border: 1px solid white; margin:0;">
