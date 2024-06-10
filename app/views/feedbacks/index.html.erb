@@ -1,0 +1,17 @@
+<% if notice %>
+  <p style="color: green; background-color: black;"><%= notice %></p>
+<% end %>
+<h1>Feedback</h1>
+
+<div id="feedbacks">
+  <% @feedbacks.each do |feedback| %>
+    <div  class=feedback>
+    <%= render feedback %>
+    <p>
+      <%= link_to "Show this feedback", feedback %>
+    </p>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to "New feedback", new_feedback_path %>
